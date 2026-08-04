@@ -36,19 +36,11 @@ export default function Login() {
       {/* Container principal simulando a visualização mobile do aplicativo */}
       <main className="w-full max-w-[360px] bg-[#F8F8F8] border border-gray-300 rounded-xl px-6 py-6 grid grid-rows-[auto_1fr_auto] gap-4 shadow-lg min-h-[640px]">
         
-        {/* Cabeçalho contendo o botão voltar e o título da página */}
-        <header className="w-full pb-3 border-b border-gray-300 grid grid-cols-[auto_1fr] items-center">
-          <button
-            type="button"
-            className="text-gray-800 text-xl cursor-pointer hover:opacity-75 transition-opacity"
-            aria-label="Voltar"
-          >
-            <FiArrowLeft />
-          </button>
-
-          <h1 className="text-xl font-medium text-[#2B2B2B] text-center pr-5">
-            Entrar
-          </h1>
+        {/* Cabeçalho apenas com o título centralizado */}
+         <header className="w-full pb-3 border-b border-gray-300 flex justify-center items-center">
+         <h1 className="text-xl font-medium text-[#2B2B2B]">
+                   Entrar
+        </h1>
         </header>
 
         {/* Conteúdo principal da tela de login */}
@@ -115,8 +107,9 @@ export default function Login() {
             <div className="h-[1px] bg-gray-400"></div>
           </div>
 
-          {/* Botões de autenticação pelas redes sociais */}
-          <div className="grid grid-cols-2 gap-6 mb-6">
+             {/* Botões de autenticação pelas redes sociais */}
+          
+            <div className="w-full flex items-center justify-between px-11 mb-6">
             <SocialButton
               providerName="Facebook"
               icon={<FaFacebookF size={22} />}

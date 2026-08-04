@@ -24,7 +24,8 @@ export default function Input({ label, icon, type = 'text', ...rest }: InputProp
 
         <input
           type={currentType}
-          className="w-full bg-transparent outline-none text-sm text-gray-800 placeholder:text-gray-400"
+          autoComplete="new-password"
+          className="w-full bg-transparent outline-none text-sm text-gray-800 placeholder:text-gray-400 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:[box-shadow:0_0_0_1000px_#F8F8F8_inset]"
           {...rest}
         />
 
@@ -35,7 +36,7 @@ export default function Input({ label, icon, type = 'text', ...rest }: InputProp
             className="text-gray-600 hover:text-gray-800 text-lg ml-2 focus:outline-none cursor-pointer"
             aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
           >
-            {showPassword ? <FiEyeOff /> : <FiEye />}
+            {showPassword ? <FiEye /> : <FiEyeOff />}
           </button>
         )}
       </div>
