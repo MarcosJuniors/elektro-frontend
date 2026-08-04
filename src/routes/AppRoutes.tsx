@@ -1,30 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Login from "../pages/Login";
-import Cadastro from "../pages/Cadastro";
-import Home from "../pages/Home";
-import Menu from "../pages/Menu";
-import Error404 from "../pages/Error404";
+import Login from '../pages/Login';
+import Cadastro from '../pages/Cadastro';
 
-
-function AppRoutes() {
+export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Rota padrão: redireciona a raiz para /login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
 
-        <Route path="/" element={<Login />} />
-
+        {/* Rotas das páginas de autenticação */}
+        <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
 
-        <Route path="/home" element={<Home />} />
-
-        <Route path="/menu" element={<Menu />} />
-
-        <Route path="/not-found" element={<Error404 />} />
-
+        {/* As rotas de Home, Menu e 404 entrarem aqui nas próximas etapas */}
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default AppRoutes;
