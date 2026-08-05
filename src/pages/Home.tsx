@@ -18,6 +18,19 @@ import {
 export function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Estilo exato extraído da especificação do Figma
+  const sectionTitleStyle = {
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeight: 500,
+    fontSize: '16px',
+    lineHeight: '100%',
+    letterSpacing: '0%',
+    color: '#000000',
+    width: '186px',
+    height: '20px',
+    opacity: 1,
+  };
+
   return (
     <div className="min-h-screen bg-[#E5E5E5] flex justify-center items-center p-4">
 
@@ -30,16 +43,16 @@ export function Home() {
           onClose={() => setIsMenuOpen(false)}
         />
 
-        <div className="p-4 space-y-4">
+        <div className="p-4 space-y-6">
 
           <div className="flex items-center justify-center gap-2 pt-1">
             <img
               src="/favicon.png"
               alt="Elektro Raio"
-              className="w-5 h-5 object-contain"
+              className="h-[42px] w-[42px] object-contain"
             />
 
-            <h1 className="text-lg font-bold text-[#FFAE50]">
+            <h1 className="text-lg font-bold text-[#FFAE50] text-[24px]">
               Bem-vindo à Elektro!
             </h1>
           </div>
@@ -54,8 +67,9 @@ export function Home() {
           </div>
 
 
+          {/* Categorias Elektro */}
           <section className="space-y-2">
-            <h2 className="font-bold text-xs text-zinc-800">
+            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
               Categorias Elektro
             </h2>
 
@@ -85,15 +99,15 @@ export function Home() {
           </section>
 
 
-          <hr className="border-zinc-200" />
-
-
+          {/* Para você */}
           <section>
-            <h2 className="font-bold text-xs text-zinc-800">
+            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
               Para você
             </h2>
 
-            <div className="grid grid-cols-2 gap-2.5 mt-2">
+            <hr className="border-zinc-300 mb-3" />
+
+            <div className="grid grid-cols-2 gap-2.5">
               {paraVoceProducts.map((prod) => (
                 <ProductCard
                   key={prod.id}
@@ -106,15 +120,15 @@ export function Home() {
           </section>
 
 
-          <hr className="border-zinc-200" />
-
-
+          {/* Produtos em destaque */}
           <section>
-            <h2 className="font-bold text-xs text-zinc-800">
+            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
               Produtos em destaque
             </h2>
 
-            <div className="grid grid-cols-2 gap-2.5 mt-2">
+            <hr className="border-zinc-300 mb-3" />
+
+            <div className="grid grid-cols-2 gap-2.5">
               {emDestaqueProducts.map((prod) => (
                 <ProductCard
                   key={prod.id}
@@ -127,15 +141,15 @@ export function Home() {
           </section>
 
 
-          <hr className="border-zinc-200" />
-
-
+          {/* Mais vendidos */}
           <section>
-            <h2 className="font-bold text-xs text-zinc-800">
+            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
               Mais vendidos
             </h2>
 
-            <div className="grid grid-cols-2 gap-2.5 mt-2">
+            <hr className="border-zinc-300 mb-3" />
+
+            <div className="grid grid-cols-2 gap-2.5">
               {maisVendidosProducts.map((prod) => (
                 <ProductCard
                   key={prod.id}

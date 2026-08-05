@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-zinc-800 text-white px-4 py-3.5 flex items-center justify-between relative z-20 rounded-t-xl">
+      <header className="bg-zinc-800 text-white px-4 py-3.5 flex items-center justify-between relative z-20 rounded-t-xl rounded-b-xl">
         <button
           onClick={() => setIsMenuOpen(true)}
           className="text-white text-xl focus:outline-none cursor-pointer"
@@ -38,7 +38,7 @@ export function Header() {
             onClick={() => setIsMenuOpen(false)}
           />
 
-          <div className="relative w-[50%] bg-[#F8F8F8] h-[45%] flex flex-col justify-between z-10 shadow-2xl border-r border-b border-zinc-300 rounded-l-xl rounded-b-xl">
+          <div className="relative w-[50%] bg-[#F8F8F8] h-[45%] flex flex-col justify-between z-10 shadow-2xl border-r border-b border-zinc-300 rounded-tl-xl">
             <div>
               <div className="bg-zinc-800 text-white px-3.5 py-3.5 flex items-center gap-2.5 rounded-tl-xl">
                 <FiUser className="text-base" />

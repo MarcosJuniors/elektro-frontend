@@ -1,92 +1,51 @@
-import { useNavigate } from 'react-router-dom';
-
 interface MenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 export function Menu({ isOpen, onClose }: MenuProps) {
-  const navigate = useNavigate();
-
-  const handleNavigate = (path: string) => {
-    onClose();
-    navigate(path);
-  };
+  if (!isOpen) return null;
 
   return (
-    <>
-      {isOpen && (
-        <div
-          className="absolute inset-0 z-40 bg-black/20"
+    <div className="fixed inset-0 bg-black/50 z-50 flex justify-start">
+      <div className="w-[280px] h-full bg-[#27272A] text-white p-6 relative flex flex-col">
+        <button
+          type="button"
           onClick={onClose}
-        />
-      )}
+          className="absolute top-4 right-4 text-white text-xl focus:outline-none cursor-pointer"
+          aria-label="Fechar menu"
+        >
+          ✕
+        </button>
 
-      <aside
-        className={`
-          absolute top-0 left-0 z-50
-          w-[210px]
-          h-[300px]
-          bg-white
-          rounded-r-xl
-          shadow-lg
-          overflow-hidden
-          transition-transform duration-300 ease-in-out
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-        `}
-      >
-        <div className="flex items-center justify-between px-4 py-3 border-b">
-          <span className="font-bold text-[#FFAE50] text-sm">
-            Menu
-          </span>
-
-          <button
-            onClick={onClose}
-            className="text-gray-600 text-xl leading-none"
-          >
-            ×
-          </button>
+        <div className="flex items-center gap-3 mb-8 pt-2">
+          <img
+            src="/favicon.png"
+            alt="Elektro Logo"
+            style={{
+              width: '78px',
+              height: '24px',
+              opacity: 1,
+            }}
+            className="object-contain"
+          />
         </div>
 
-        <nav className="flex flex-col gap-3 px-4 py-4 text-sm">
-
-          <button
-            className="text-left text-gray-700"
-            onClick={() => handleNavigate('/editar-dados')}
-          >
-            Editar dados
-          </button>
-
-          <button
-            className="text-left text-gray-700"
-            onClick={() => handleNavigate('/meus-pedidos')}
-          >
-            Meus pedidos
-          </button>
-
-          <button
-            className="text-left text-gray-700"
-            onClick={() => handleNavigate('/meus-produtos')}
-          >
-            Meus produtos
-          </button>
-
-          <button
-            className="text-left text-gray-700"
-            onClick={() => handleNavigate('/meu-carrinho')}
-          >
-            Meu carrinho
-          </button>
-
-          <button
-            className="text-left text-red-500"
-            onClick={() => handleNavigate('/login')}
-          >
-            Sair
-          </button>
-
+        <nav className="flex flex-col gap-4 text-sm font-medium">
+          <a href="#" className="hover:text-[#FFAE50] transition-colors">
+            Home
+          </a>
+          <a href="#" className="hover:text-[#FFAE50] transition-colors">
+            Categorias
+          </a>
+          <a href="#" className="hover:text-[#FFAE50] transition-colors">
+            Minha Conta
+          </a>
+          <a href="#" className="hover:text-[#FFAE50] transition-colors">
+            Carrinho
+          </a>
         </nav>
-      </aside>
-    </>
+      </div>
+    </div>
   );
 }
