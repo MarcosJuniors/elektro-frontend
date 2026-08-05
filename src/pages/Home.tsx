@@ -13,17 +13,16 @@ import {
 export function Home() {
   return (
     <div className="min-h-screen bg-[#E5E5E5] flex justify-center items-center p-4">
-      {/* Container rigorosamente idêntico ao tamanho e bordas da Login (b.png) */}
-      <div className="relative w-full max-w-[390px] bg-white h-[750px] max-h-[85vh] flex flex-col justify-between shadow-xl rounded-2xl overflow-hidden border border-zinc-200">
-        
+      
+      <div className="relative w-full max-w-[385px] bg-white h-[680px] flex flex-col justify-between shadow-xl rounded-2xl overflow-hidden border border-zinc-200">
         {/* Header fixo no topo */}
         <Header />
 
-        {/* Conteúdo com rolagem limpa sem barra visual */}
+        
         <div className="flex-1 overflow-y-auto flex flex-col justify-between [::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <main className="px-4 py-3 w-full space-y-4">
             
-            {/* Boas-vindas centralizado */}
+            
             <div className="flex items-center justify-center gap-2 pt-1">
               <img src="/favicon.png" alt="Elektro Raio" className="w-5 h-5 object-contain" />
               <h1 className="text-lg font-bold text-[#FFAE50]">
@@ -31,7 +30,7 @@ export function Home() {
               </h1>
             </div>
 
-            {/* Banner único sem duplicação de pontinhos */}
+            
             <div className="bg-white rounded-2xl overflow-hidden shadow-sm">
               <img
                 src={bannerImg}
@@ -40,7 +39,7 @@ export function Home() {
               />
             </div>
 
-            {/* Categorias */}
+            
             <section className="space-y-2">
               <h2 className="font-bold text-xs text-zinc-800">Categorias Elektro</h2>
               <div className="grid grid-cols-4 gap-2">
@@ -59,7 +58,7 @@ export function Home() {
 
             <hr className="border-zinc-200 my-1.5" />
 
-            {/* Para você */}
+            
             <section className="space-y-2">
               <h2 className="font-bold text-xs text-zinc-800">Para você</h2>
               <div className="grid grid-cols-2 gap-2.5">
@@ -76,7 +75,7 @@ export function Home() {
 
             <hr className="border-zinc-200 my-1.5" />
 
-            {/* Produtos em destaque */}
+            
             <section className="space-y-2">
               <h2 className="font-bold text-xs text-zinc-800">Produtos em destaque</h2>
               <div className="grid grid-cols-2 gap-2.5">
@@ -93,7 +92,7 @@ export function Home() {
 
             <hr className="border-zinc-200 my-1.5" />
 
-            {/* Mais vendidos */}
+            
             <section className="space-y-2">
               <h2 className="font-bold text-xs text-zinc-800">Mais vendidos</h2>
               <div className="grid grid-cols-2 gap-2.5">
@@ -109,7 +108,7 @@ export function Home() {
             </section>
           </main>
 
-          {/* Footer no final */}
+          
           <Footer />
         </div>
       </div>
