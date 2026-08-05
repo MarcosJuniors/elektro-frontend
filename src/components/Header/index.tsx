@@ -13,8 +13,7 @@ export function Header() {
 
   return (
     <>
-      {/* Header Principal */}
-      <header className="bg-zinc-800 text-white px-4 py-3.5 flex items-center justify-between relative z-20 rounded-t-[20px]">
+      <header className="bg-zinc-800 text-white px-4 py-3.5 flex items-center justify-between relative z-20 rounded-t-xl">
         <button
           onClick={() => setIsMenuOpen(true)}
           className="text-white text-xl focus:outline-none cursor-pointer"
@@ -32,55 +31,51 @@ export function Header() {
         </button>
       </header>
 
-      {/* Modal / Overlay do Menu Hambúrguer */}
       {isMenuOpen && (
-        <div className="absolute inset-0 z-50 flex overflow-hidden rounded-[20px]">
-          {/* Overlay escuro do lado direito */}
+        <div className="absolute inset-0 z-50 flex pointer-events-auto rounded-xl overflow-hidden">
           <div
-            className="absolute inset-0 bg-black/60 transition-opacity"
+            className="absolute inset-0 bg-black/50 transition-opacity"
             onClick={() => setIsMenuOpen(false)}
           />
 
-          {/* Container do Menu Lateral */}
-          <div className="relative w-[42%] bg-zinc-100 h-full flex flex-col z-10 shadow-xl">
-            {/* Cabeçalho do Menu (Usuário) */}
-            <div className="bg-zinc-800 text-white px-3.5 py-3.5 flex items-center gap-2.5">
-              <FiUser className="text-lg" />
-              <span className="font-semibold text-xs tracking-wide">Usuário</span>
+          <div className="relative w-[50%] bg-[#F8F8F8] h-[45%] flex flex-col justify-between z-10 shadow-2xl border-r border-b border-zinc-300 rounded-l-xl rounded-b-xl">
+            <div>
+              <div className="bg-zinc-800 text-white px-3.5 py-3.5 flex items-center gap-2.5 rounded-tl-xl">
+                <FiUser className="text-base" />
+                <span className="font-semibold text-xs tracking-wide">Usuário</span>
+              </div>
+
+              <nav className="px-3 py-2 flex flex-col">
+                <button
+                  onClick={() => handleNavigate('/error404')}
+                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                >
+                  Editar dados
+                </button>
+                <button
+                  onClick={() => handleNavigate('/error404')}
+                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                >
+                  Meus pedidos
+                </button>
+                <button
+                  onClick={() => handleNavigate('/error404')}
+                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                >
+                  Meus produtos
+                </button>
+                <button
+                  onClick={() => handleNavigate('/error404')}
+                  className="w-full text-left py-2 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                >
+                  Meu carrinho
+                </button>
+              </nav>
             </div>
 
-            {/* Links de Navegação */}
-            <nav className="flex-1 px-3 py-2 flex flex-col">
+            <div className="px-3 pb-3 pt-1">
               <button
-                onClick={() => handleNavigate('/error404')}
-                className="w-full text-left py-2.5 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
-              >
-                Editar dados
-              </button>
-              <button
-                onClick={() => handleNavigate('/error404')}
-                className="w-full text-left py-2.5 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
-              >
-                Meus pedidos
-              </button>
-              <button
-                onClick={() => handleNavigate('/error404')}
-                className="w-full text-left py-2.5 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
-              >
-                Meus produtos
-              </button>
-              <button
-                onClick={() => handleNavigate('/error404')}
-                className="w-full text-left py-2.5 text-zinc-800 text-[11px] font-medium cursor-pointer"
-              >
-                Meu carrinho
-              </button>
-            </nav>
-
-            {/* Opção de Sair no Rodapé */}
-            <div className="px-3 pb-5 pt-2 mt-auto">
-              <button
-                onClick={() => handleNavigate('/')}
+                onClick={() => handleNavigate('/login')}
                 className="w-full text-left text-zinc-800 text-[11px] font-semibold cursor-pointer"
               >
                 Sair
