@@ -40,7 +40,7 @@ export function Header() {
 
           <div className="relative w-[50%] bg-[#F8F8F8] h-[45%] flex flex-col justify-between z-10 shadow-2xl border-r border-b border-zinc-300 rounded-tl-xl">
             <div>
-              <div className="bg-zinc-800 text-white px-3.5 py-3.5 flex items-center gap-2.5 rounded-tl-xl">
+              <div className="bg-zinc-800 text-white px-3.5 py-3.5 flex items-center gap-3 rounded-tl-xl">
                 <FiUser className="text-base" />
                 <span className="font-semibold text-xs tracking-wide">Usuário</span>
               </div>
@@ -48,25 +48,25 @@ export function Header() {
               <nav className="px-3 py-2 flex flex-col">
                 <button
                   onClick={() => handleNavigate('/error404')}
-                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[15px] font-medium cursor-pointer"
                 >
                   Editar dados
                 </button>
                 <button
                   onClick={() => handleNavigate('/error404')}
-                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[15px] font-medium cursor-pointer"
                 >
                   Meus pedidos
                 </button>
                 <button
                   onClick={() => handleNavigate('/error404')}
-                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                  className="w-full text-left py-2 border-b border-zinc-300 text-zinc-800 text-[15px] font-medium cursor-pointer"
                 >
                   Meus produtos
                 </button>
                 <button
                   onClick={() => handleNavigate('/error404')}
-                  className="w-full text-left py-2 text-zinc-800 text-[11px] font-medium cursor-pointer"
+                  className="w-full text-left py-2 text-zinc-800 text-[15px] font-medium cursor-pointer"
                 >
                   Meu carrinho
                 </button>
@@ -76,7 +76,7 @@ export function Header() {
             <div className="px-3 pb-3 pt-1">
               <button
                 onClick={() => handleNavigate('/login')}
-                className="w-full text-left text-zinc-800 text-[11px] font-semibold cursor-pointer"
+                className="w-full text-left text-zinc-800 text-[15px] font-semibold cursor-pointer"
               >
                 Sair
               </button>

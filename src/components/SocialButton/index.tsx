@@ -16,7 +16,7 @@ function SocialButton({
       type="button"
       onClick={onClick}
       aria-label={`Entrar com ${providerName}`}
-      className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2B2B2B] text-white transition hover:bg-black cursor-pointer shadow-sm"
+      className="w-16 h-16 flex items-center justify-center rounded-full bg-[#2B2B2B] text-white transition hover:bg-black cursor-pointer shadow-sm"
     >
       {icon}
     </button>

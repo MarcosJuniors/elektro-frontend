@@ -31,7 +31,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
           />
         </div>
 
-        <nav className="flex flex-col gap-4 text-sm font-medium">
+        <nav className="flex flex-col gap-13 text-sm font-medium">
           <a href="#" className="hover:text-[#FFAE50] transition-colors">
             Home
           </a>

@@ -43,9 +43,9 @@ export function Home() {
           onClose={() => setIsMenuOpen(false)}
         />
 
-        <div className="p-4 space-y-6">
+        <div className="p-4 space-y-4">
 
-          <div className="flex items-center justify-center gap-2 pt-1">
+          <div className="flex items-center justify-center gap-4 pt-1">
             <img
               src="/favicon.png"
               alt="Elektro Raio"
@@ -69,7 +69,7 @@ export function Home() {
 
           {/* Categorias Elektro */}
           <section className="space-y-2">
-            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
+            <h2 style={sectionTitleStyle} className="mb-3 flex items-center">
               Categorias Elektro
             </h2>
 
@@ -101,11 +101,11 @@ export function Home() {
 
           {/* Para você */}
           <section>
-            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
+            <h2 style={sectionTitleStyle} className="mb-2 flex items-center">
               Para você
             </h2>
 
-            <hr className="border-zinc-300 mb-3" />
+            <hr className="border-zinc-300 mb-5" />
 
             <div className="grid grid-cols-2 gap-2.5">
               {paraVoceProducts.map((prod) => (
@@ -122,11 +122,11 @@ export function Home() {
 
           {/* Produtos em destaque */}
           <section>
-            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
+            <h2 style={sectionTitleStyle} className="mb-2 flex items-center">
               Produtos em destaque
             </h2>
 
-            <hr className="border-zinc-300 mb-3" />
+            <hr className="border-zinc-300 mb-5" />
 
             <div className="grid grid-cols-2 gap-2.5">
               {emDestaqueProducts.map((prod) => (
@@ -143,12 +143,12 @@ export function Home() {
 
           {/* Mais vendidos */}
           <section>
-            <h2 style={sectionTitleStyle} className="mb-1 flex items-center">
+            <h2 style={sectionTitleStyle} className="mb-2 flex items-center">
               Mais vendidos
             </h2>
 
-            <hr className="border-zinc-300 mb-3" />
-
+            <hr className="border-zinc-300 mb-5" />
+                 
             <div className="grid grid-cols-2 gap-2.5">
               {maisVendidosProducts.map((prod) => (
                 <ProductCard
