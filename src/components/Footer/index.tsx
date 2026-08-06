@@ -6,11 +6,23 @@ import linkedinIcon from '../../assets/icons-redes-sociais/linkedin.png';
 
 export function Footer() {
   return (
-    <footer className="bg-[#FFAE50] py-6 px-4 flex flex-col items-center justify-center gap-3 w-full">
-      <p className="text-zinc-900 font-medium text-xs">
+    <footer className="bg-[#FFAE50] py-12 px-10 flex flex-col items-center justify-center gap-3 w-full">
+      <p
+        style={{
+          fontFamily: 'Montserrat, sans-serif',
+          fontWeight: 400,
+          fontSize: '16px',
+          lineHeight: '100%',
+          letterSpacing: '0%',
+          color: '#000000',
+          width: '212px',
+          height: '20px',
+          opacity: 1,
+        }}
+        className="flex items-center justify-center mb-4"
+      >
         Siga-nos nas redes sociais!
       </p>
-
       <div className="flex items-center justify-center gap-3">
         <a href="#" aria-label="Facebook">
           <img src={facebookIcon} alt="Facebook" className="w-6 h-6 object-contain" />

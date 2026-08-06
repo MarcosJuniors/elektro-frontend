@@ -1,168 +1,236 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { FiUser, FiMail, FiLock, FiPhone, FiCreditCard, FiArrowLeft } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { FiArrowLeft } from 'react-icons/fi';
 import { FaFacebookF, FaGoogle } from 'react-icons/fa';
-
-import Input from '../components/Input';
-import Button from '../components/Button';
-import SocialButton from '../components/SocialButton';
 
 export default function Cadastro() {
   const navigate = useNavigate();
 
-  // 1. Estados controlados do formulário(UseState para cada campo)
-  const [formData, setFormData] = useState({
-    nome: '',
-    cpf: '',
-    telefone: '',
-    email: '',
-    senha: '',
-    confirmarSenha: '',
-  });
+  const [nome, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
 
-  // Função para atualizar os campos do estado de forma dinâmica
-  const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+  const labelStyle: React.CSSProperties = {
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '100%',
+    letterSpacing: '0%',
+    color: '#2B2B2B',
+    opacity: 1,
   };
 
-  // 2. Manipulação do envio do formulário
+  const inputStyle: React.CSSProperties = {
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '100%',
+    letterSpacing: '0%',
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Validação simples para a avaliação
-    if (!formData.nome || !formData.email || !formData.senha) {
-      alert('Por favor, preencha todos os campos obrigatórios!');
-      return;
-    }
-
-    if (formData.senha !== formData.confirmarSenha) {
+    if (senha !== confirmarSenha) {
       alert('As senhas não coincidem!');
       return;
     }
-
-    // Sucesso: Redireciona para a Home
     navigate('/home');
   };
 
   return (
-    // Container externo centralizado para visualização Mobile
     <div className="min-h-screen bg-[#E5E5E5] flex justify-center items-center p-4">
-      
-      {/* Card principal estilo Smartphone */}
-      <main className="w-full max-w-[360px] bg-[#F8F8F8] border border-gray-300 rounded-xl px-6 py-6 flex flex-col gap-5 shadow-lg min-h-[640px]">
-        
-        {/* Cabeçalho da página */}
-        <header className="w-full pb-3 border-b border-gray-300 grid grid-cols-[auto_1fr] items-center">
+      <main
+        style={{
+          width: '390px',
+          height: '844px',
+          backgroundColor: 'rgba(245, 245, 245, 1)',
+          opacity: 1,
+        }}
+        className="border border-gray-300 rounded-xl shadow-lg flex flex-col overflow-hidden font-sans relative"
+      >
+        <header
+          style={{
+            width: '390px',
+            height: '60px',
+            opacity: 1,
+            paddingTop: '10px',
+            paddingRight: '32px',
+            paddingBottom: '10px',
+            paddingLeft: '32px',
+          }}
+          className="border-b border-gray-300 flex items-center justify-between shrink-0 box-border relative"
+        >
           <button
             type="button"
             onClick={() => navigate('/login')}
-            className="text-gray-800 text-xl cursor-pointer hover:opacity-75 transition-opacity"
-            aria-label="Voltar para Login"
+            className="text-zinc-800 hover:text-black transition-colors focus:outline-none cursor-pointer z-10"
+            aria-label="Voltar"
           >
-            <FiArrowLeft />
+            <FiArrowLeft size={18} />
           </button>
-          <h1 className="text-xl font-medium text-[#2B2B2B] text-center pr-5">
-            Cadastre-se
+
+          <h1
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 500,
+              fontSize: '24px',
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              color: 'rgba(43, 43, 43, 1)',
+              textAlign: 'center',
+            }}
+            className="absolute left-1/2 -translate-x-1/2"
+          >
+            Cadastrar-se
           </h1>
+
+          <div className="w-[18px]" />
         </header>
 
-        {/* Botões Sociais (FB e Google) */}
-        <section className="w-full flex flex-col items-center justify-center gap-4 py-2">
-          <div className="w-full flex items-center justify-between px-11">
-            <SocialButton
-              providerName="Facebook"
-              icon={<FaFacebookF size={22} />}
-            />
-            <SocialButton
-              providerName="Google"
-              icon={<FaGoogle size={22} />}
-            />
-          </div>
-
-          {/* Divisor "ou" */}
-          <div className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-3 mt-2">
-            <div className="h-[1px] bg-gray-400"></div>
-            <span className="text-xs text-gray-600 font-normal">ou</span>
-            <div className="h-[1px] bg-gray-400"></div>
-          </div>
-        </section>
-
-        {/* Formulário de Cadastro */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-          
-          {/* Campo Nome */}
-          <Input
-            type="text"
-            placeholder="Nome completo"
-            icon={<FiUser />}
-            value={formData.nome}
-            onChange={(e) => handleChange('nome', e.target.value)}
-          />
-
-          {/* Campo CPF */}
-          <Input
-            type="text"
-            placeholder="CPF"
-            icon={<FiCreditCard />}
-            value={formData.cpf}
-            onChange={(e) => handleChange('cpf', e.target.value)}
-          />
-
-          {/* Campo Telefone */}
-          <Input
-            type="tel"
-            placeholder="Telefone"
-            icon={<FiPhone />}
-            value={formData.telefone}
-            onChange={(e) => handleChange('telefone', e.target.value)}
-          />
-
-          {/* Campo E-mail */}
-          <Input
-            type="email"
-            placeholder="E-mail"
-            icon={<FiMail />}
-            value={formData.email}
-            onChange={(e) => handleChange('email', e.target.value)}
-          />
-
-          {/* Campo Senha */}
-          <Input
-            type="password"
-            placeholder="Senha"
-            icon={<FiLock />}
-            value={formData.senha}
-            onChange={(e) => handleChange('senha', e.target.value)}
-          />
-
-          {/* Campo Confirmar Senha */}
-          <Input
-            type="password"
-            placeholder="Confirmar senha"
-            icon={<FiLock />}
-            value={formData.confirmarSenha}
-            onChange={(e) => handleChange('confirmarSenha', e.target.value)}
-          />
-
-          {/* Botão Cadastrar-se */}
-          <div className="flex justify-center mt-3">
-            <Button type="submit">
-              Cadastrar-se
-            </Button>
-          </div>
-
-        </form>
-
-        {/* Link auxiliar de Login */}
-        <footer className="flex justify-center mt-auto pt-2">
-          <Link
-            to="/login"
-            className="text-xs text-[#0085FF] underline font-normal hover:opacity-80 transition-opacity"
+        <section className="flex flex-col items-center justify-start w-full px-8 pt-[74px] pb-6 flex-1">
+          <div
+            style={{
+              width: '326px',
+              height: '88.98628234863281px',
+              opacity: 1,
+            }}
+            className="flex flex-col justify-between items-center mb-6 relative"
           >
-            Já possui cadastro? Entre!
-          </Link>
-        </footer>
+            <div className="w-full grid grid-cols-2 justify-items-center items-center">
+              <button
+                type="button"
+                className="w-14 h-14 rounded-full bg-[#27272A] text-white flex items-center justify-center cursor-pointer hover:bg-black transition-colors"
+              >
+                <FaFacebookF size={20} />
+              </button>
+              <button
+                type="button"
+                className="w-14 h-14 rounded-full bg-[#27272A] text-white flex items-center justify-center cursor-pointer hover:bg-black transition-colors"
+              >
+                <FaGoogle size={20} />
+              </button>
+            </div>
 
+            <div className="w-full grid grid-cols-2 gap-8 items-center relative">
+              <div className="h-[1.5px] bg-[#27272A] w-full" />
+              <div className="h-[1.5px] bg-[#27272A] w-full" />
+              <span className="absolute left-1/2 -translate-x-1/2 text-xs text-zinc-600 font-normal px-1 bg-rgba(245, 245, 245, 1)">
+                ou
+              </span>
+            </div>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            autoComplete="off"
+            style={{ width: '327px' }}
+            className="flex flex-col gap-9"
+          >
+            <div className="flex flex-col border-b border-zinc-300 pb-2">
+              <label style={labelStyle}>Nome</label>
+              <input
+                type="text"
+                name="user_fullname_field"
+                autoComplete="new-password"
+                placeholder="Digite seu nome completo"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                style={inputStyle}
+                className="w-full bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:bg-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex flex-col border-b border-zinc-300 pb-2">
+              <label style={labelStyle}>CPF</label>
+              <input
+                type="text"
+                name="user_cpf_field"
+                autoComplete="new-password"
+                placeholder="Digite seu CPF"
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
+                style={inputStyle}
+                className="w-full bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:bg-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex flex-col border-b border-zinc-300 pb-2">
+              <label style={labelStyle}>Telefone</label>
+              <input
+                type="tel"
+                name="user_phone_field"
+                autoComplete="new-password"
+                placeholder="Digite seu telefone"
+                value={telefone}
+                onChange={(e) => setTelefone(e.target.value)}
+                style={inputStyle}
+                className="w-full bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:bg-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex flex-col border-b border-zinc-300 pb-2">
+              <label style={labelStyle}>E-mail</label>
+              <input
+                type="email"
+                name="user_email_field"
+                autoComplete="new-password"
+                placeholder="Digite seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={inputStyle}
+                className="w-full bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:bg-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex flex-col border-b border-zinc-300 pb-2">
+              <label style={labelStyle}>Senha</label>
+              <input
+                type="password"
+                name="user_password_field"
+                autoComplete="new-password"
+                placeholder="Digite sua senha"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                style={inputStyle}
+                className="w-full bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:bg-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex flex-col border-b border-zinc-300 pb-1.5">
+              <label style={labelStyle}>Confirmar sua senha</label>
+              <input
+                type="password"
+                name="user_confirm_password_field"
+                autoComplete="new-password"
+                placeholder="Confirme sua senha"
+                value={confirmarSenha}
+                onChange={(e) => setConfirmarSenha(e.target.value)}
+                style={inputStyle}
+                className="w-full bg-transparent text-zinc-800 placeholder-zinc-400 focus:outline-none focus:bg-transparent mt-1"
+              />
+            </div>
+
+            <div className="flex justify-center mt-3">
+              <button
+                type="submit"
+                style={{
+                  fontFamily: 'Montserrat, sans-serif',
+                  fontWeight: 500,
+                  fontSize: '18px',
+                  lineHeight: '100%',
+                  letterSpacing: '0%',
+                  color: 'rgba(245, 245, 245, 1)',
+                }}
+                className="w-48 py-2.5 bg-[#27272A] rounded-full hover:bg-black transition-colors cursor-pointer"
+              >
+                Cadastrar-se!
+              </button>
+            </div>
+          </form>
+        </section>
       </main>
     </div>
   );
