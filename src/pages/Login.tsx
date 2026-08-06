@@ -178,11 +178,11 @@ export default function Login() {
 
         <footer className="w-full flex flex-col items-center px-6 pb-8 shrink-0">
           <div className="w-full grid grid-cols-[1fr_auto_1fr] items-center gap-3 mb-4">
-            <div className="h-[1px] bg-gray-400" />
-            <span className="text-xs text-gray-600 font-normal">
-              ou
-            </span>
-            <div className="h-[1px] bg-gray-400" />
+          <div className="h-[1.5px] bg-[#2B2B2B]" />
+             <span className="text-xs text-[#2B2B2B] font-medium">
+               ou
+             </span>
+          <div className="h-[1.5px] bg-[#2B2B2B]" />
           </div>
 
           <div className="w-full flex items-center justify-between px-11 mb-6">
