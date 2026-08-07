@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-zinc-800 text-white px-4 py-3.5 flex items-center justify-between relative z-20 rounded-t-xl rounded-b-xl">
+      <header className="w-full h-[71px] bg-[#2B2B2B] flex items-center justify-between px-6 relative rounded-b-xl">
         <button
           onClick={() => setIsMenuOpen(true)}
           className="text-white text-xl focus:outline-none cursor-pointer"
@@ -40,9 +40,9 @@ export function Header() {
 
           <div className="relative w-[50%] bg-[#F8F8F8] h-[45%] flex flex-col justify-between z-10 shadow-2xl border-r border-b border-zinc-300 rounded-tl-xl">
             <div>
-              <div className="bg-zinc-800 text-white px-3.5 py-3.5 flex items-center gap-3 rounded-tl-xl">
-                <FiUser className="text-base" />
-                <span className="font-semibold text-xs tracking-wide">Usuário</span>
+              <div className="bg-zinc-800 text-white px-3.5 h-[85px] flex items-center gap-3 rounded-tl-xl">
+                <FiUser className="text-xl" />
+                <span className="font-semibold text-base tracking-wide">Usuário</span>
               </div>
 
               <nav className="px-3 py-2 flex flex-col">

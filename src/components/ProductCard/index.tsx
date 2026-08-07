@@ -12,17 +12,17 @@ export function ProductCard({ name, price, image }: ProductCardProps) {
   return (
     <div
       style={{
-        width: '155px',
+        width: '100%',
         height: '189px',
         borderRadius: '15.13px',
         padding: '9.46px',
-        gap: '9.46px',
+        gap: '15px',
         opacity: 1,
       }}
       className="bg-[#F8F8F8] flex flex-col justify-between shadow-sm border border-zinc-200/60 box-border overflow-hidden"
     >
       {/* Container da Imagem */}
-      <div className="w-full h-[105px] bg-white rounded-xl flex items-center justify-center overflow-hidden p-1 shrink-0">
+      <div className="w-full h-[110px] bg-white rounded-xl flex items-center justify-center overflow-hidden p-1 shrink-0">
         <img
           src={image}
           alt={name}
@@ -33,7 +33,7 @@ export function ProductCard({ name, price, image }: ProductCardProps) {
       {/* Nome, Preço e Coração */}
       <div className="flex items-end justify-between px-0.5 w-full">
         <div className="flex flex-col">
-          <p className="text-[10px] text-zinc-500 font-medium leading-tight truncate max-w-[100px]">
+          <p className="text-[15px] text-zinc-500 font-medium leading-tight truncate max-w-[100px]">
             {name}
           </p>
           <p className="text-xs font-bold text-zinc-900 mt-0.5">
