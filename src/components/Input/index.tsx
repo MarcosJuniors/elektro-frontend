@@ -1,4 +1,5 @@
-import { useState, InputHTMLAttributes, ReactNode } from 'react';
+import { useState } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

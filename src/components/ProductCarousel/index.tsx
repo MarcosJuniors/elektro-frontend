@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { ProductCard } from '../ProductCard';
 
 interface Product {
-  id: number;
+  id: string;
   name: string;
   price: string;
   image: string;
